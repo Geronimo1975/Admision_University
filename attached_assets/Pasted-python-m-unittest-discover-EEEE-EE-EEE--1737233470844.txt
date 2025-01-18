@@ -1,0 +1,122 @@
+python -m unittest discover
+...EEEE.EE.EEE
+======================================================================
+ERROR: test_login_invalid_credentials (tests.test_auth.TestAuth.test_login_invalid_credentials)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_auth.py", line 9, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 15, in setUp
+    db.init_app(self.app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 312, in init_app
+    raise RuntimeError(
+RuntimeError: A 'SQLAlchemy' instance has already been registered on this Flask app. Import and use that instance instead.
+
+======================================================================
+ERROR: test_login_success (tests.test_auth.TestAuth.test_login_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_auth.py", line 9, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 15, in setUp
+    db.init_app(self.app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 312, in init_app
+    raise RuntimeError(
+RuntimeError: A 'SQLAlchemy' instance has already been registered on this Flask app. Import and use that instance instead.
+
+======================================================================
+ERROR: test_register_duplicate_email (tests.test_auth.TestAuth.test_register_duplicate_email)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_auth.py", line 9, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 15, in setUp
+    db.init_app(self.app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 312, in init_app
+    raise RuntimeError(
+RuntimeError: A 'SQLAlchemy' instance has already been registered on this Flask app. Import and use that instance instead.
+
+======================================================================
+ERROR: test_register_success (tests.test_auth.TestAuth.test_register_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_auth.py", line 9, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 15, in setUp
+    db.init_app(self.app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 312, in init_app
+    raise RuntimeError(
+RuntimeError: A 'SQLAlchemy' instance has already been registered on this Flask app. Import and use that instance instead.
+
+======================================================================
+ERROR: test_get_consent (tests.test_gdpr.TestGDPR.test_get_consent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/base.py", line 15, in setUp
+    db.init_app(self.app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 312, in init_app
+    raise RuntimeError(
+RuntimeError: A 'SQLAlchemy' instance has already been registered on this Flask app. Import and use that instance instead.
+
+======================================================================
+ERROR: test_update_consent (tests.test_gdpr.TestGDPR.test_update_consent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/base.py", line 15, in setUp
+    db.init_app(self.app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 312, in init_app
+    raise RuntimeError(
+RuntimeError: A 'SQLAlchemy' instance has already been registered on this Flask app. Import and use that instance instead.
+
+======================================================================
+ERROR: test_add_university (tests.test_university_portal.TestUniversityPortal.test_add_university)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_university_portal.py", line 7, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 15, in setUp
+    db.init_app(self.app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 312, in init_app
+    raise RuntimeError(
+RuntimeError: A 'SQLAlchemy' instance has already been registered on this Flask app. Import and use that instance instead.
+
+======================================================================
+ERROR: test_update_requirements (tests.test_university_portal.TestUniversityPortal.test_update_requirements)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_university_portal.py", line 7, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 15, in setUp
+    db.init_app(self.app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 312, in init_app
+    raise RuntimeError(
+RuntimeError: A 'SQLAlchemy' instance has already been registered on this Flask app. Import and use that instance instead.
+
+======================================================================
+ERROR: tests.test_video_interview (unittest.loader._FailedTest.tests.test_video_interview)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_video_interview
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_video_interview.py", line 4, in <module>
+    from src.video_interview_server import app
+  File "/home/runner/workspace/src/video_interview_server.py", line 27, in <module>
+    @video_bp.route('/start-interview', methods=['POST'])
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 46, in wrapper_func
+    self._check_setup_finished(f_name)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask/sansio/blueprints.py", line 215, in _check_setup_finished
+    raise AssertionError(
+AssertionError: The setup method 'route' can no longer be called on the blueprint 'video'. It has already been registered at least once, any changes will not be applied consistently.
+Make sure all imports, decorators, functions, etc. needed to set up the blueprint are done before registering it.
+
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.074s
+
+FAILED (errors=9)
+~/workspace$ 
