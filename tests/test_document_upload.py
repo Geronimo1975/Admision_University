@@ -1,28 +1,16 @@
-<<<<<<< HEAD
-
 import unittest
-from src.document_upload import *  # Import your document_upload module
+from src.document_upload import app
+from io import BytesIO
 
 class TestDocumentUpload(unittest.TestCase):
-    def test_file_upload(self):
-        # Add your test logic here
-        pass
+    def setUp(self):
+        self.app = app.test_client()
+        app.config["TESTING"] = True
 
-    def test_file_validation(self):
-        # Add your test logic here
-        pass
-=======
-import pytest
-from document_upload import app
+    def test_upload_document(self):
+        data = {"file": (BytesIO(b"Test file content"), "test.pdf")}
+        response = self.app.post("/upload", content_type="multipart/form-data", data=data)
+        self.assertEqual(response.status_code, 200)
 
-@pytest.fixture
-def client():
-    app.config["TESTING"] = True
-    with app.test_client() as client:
-        yield client
-
-def test_upload_document(client):
-    data = {"file": (b"Test file content", "test.pdf")}
-    response = client.post("/upload", content_type="multipart/form-data", data=data)
-    assert response.status_code == 200
->>>>>>> 484d55e (Update)
+if __name__ == "__main__":
+    unittest.main()

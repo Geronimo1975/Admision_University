@@ -1,36 +1,27 @@
-<<<<<<< HEAD
 
 import unittest
-from src.auth import *  # Import your auth module
+from src.auth import app
 
 class TestAuth(unittest.TestCase):
-    def test_user_login(self):
-        # Add your test logic here
-        pass
+    def setUp(self):
+        self.app = app.test_client()
+        app.config["TESTING"] = True
 
-    def test_user_registration(self):
-        # Add your test logic here
-        pass
+    def test_register(self):
+        response = self.app.post("/register", json={
+            "email": "test@example.com",
+            "password": "123456",
+            "role": "candidate"
+        })
+        self.assertEqual(response.status_code, 200)
 
-    def test_password_validation(self):
-        # Add your test logic here
-        pass
-=======
-import pytest
-from auth import app
+    def test_login(self):
+        response = self.app.post("/login", json={
+            "email": "test@example.com",
+            "password": "123456"
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("token", response.get_json())
 
-@pytest.fixture
-def client():
-    app.config["TESTING"] = True
-    with app.test_client() as client:
-        yield client
-
-def test_register(client):
-    response = client.post("/register", json={"email": "test@example.com", "password": "123456", "role": "candidate"})
-    assert response.status_code == 200
-
-def test_login(client):
-    response = client.post("/login", json={"email": "test@example.com", "password": "123456"})
-    assert response.status_code == 200
-    assert "token" in response.get_json()
->>>>>>> 484d55e (Update)
+if __name__ == "__main__":
+    unittest.main()
