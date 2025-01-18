@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class Consent(db.Model):
+class GDPRConsent(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     consent_recording = db.Column(db.Boolean, default=False)
     consent_data = db.Column(db.Boolean, default=False)

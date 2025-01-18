@@ -1,9 +1,11 @@
 
 import unittest
+from unittest.mock import patch
 from src.video_interview_server import app
 
 class TestVideoInterview(unittest.TestCase):
-    def setUp(self):
+    @patch('src.salesforce.Salesforce')
+    def setUp(self, mock_sf):
         self.app = app.test_client()
         app.config['TESTING'] = True
 
