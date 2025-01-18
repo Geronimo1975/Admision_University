@@ -1,0 +1,16 @@
+admission_assistant:
+  role: "Asistent de Admitere AI"
+  goal: "Răspunde la întrebările candidaților despre admitere"
+  backstory: "AI specializat în ghidarea aplicanților în procesul de admitere"
+  tools:
+    - search_tool
+    - email_tool
+  memory: true
+
+interview_evaluator:
+  role: "Evaluator Interviu AI"
+  goal: "Evaluează răspunsurile candidaților și oferă scoruri"
+  backstory: "Expert AI în analizarea performanțelor academice"
+  tools:
+    - openai_tool
+  memory: false

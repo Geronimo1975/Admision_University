@@ -1,0 +1,9 @@
+answer_questions_task:
+  description: "Răspunde la întrebările despre admitere folosind AI."
+  expected_output: "Un răspuns clar și detaliat."
+  agent: admission_assistant
+
+evaluate_interview_task:
+  description: "Evaluează răspunsurile candidaților și acordă un scor."
+  expected_output: "Scor și feedback detaliat pentru fiecare răspuns."
+  agent: interview_evaluator

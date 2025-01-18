@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat AI & Agenți Umani</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Chat AI & Agenți</h1>
+        <div id="chat-box" class="border p-3 bg-light" style="height: 300px; overflow-y: scroll;"></div>
+        <input type="text" id="message" class="form-control mt-2" placeholder="Scrie un mesaj..." />
+        <button class="btn btn-primary mt-2" onclick="sendMessage()">Trimite</button>
+    </div>
+
+    <script>
+        var socket = io.connect("http://127.0.0.1:5003");
+        var userId = Math.random().toString(36).substring(7);
+
+        function sendMessage() {
+            var message = document.getElementById("message").value;
+            socket.emit("message", { user_id: userId, message: message });
+            document.getElementById("chat-box").innerHTML += "<p><b>Tu:</b> " + message + "</p>";
+            document.getElementById("message").value = "";
+        }
+
+        socket.on("ai_message", function(data) {
+            document.getElementById("chat-box").innerHTML += "<p><b>AI:</b> " + data.message + "</p>";
+        });
+
+        socket.on("agent_message", function(data) {
+            document.getElementById("chat-box").innerHTML += "<p><b>Agent:</b> " + data.message + "</p>";
+        });
+    </script>
+</body>
+</html>
