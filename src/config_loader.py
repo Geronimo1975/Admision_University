@@ -14,6 +14,9 @@ class Settings:
         else:
             self.config = {}
             
+    def __iter__(self):
+        return iter(self.config.items())
+            
     def get(self, key, default=None):
         return self.config.get(key, default)
 

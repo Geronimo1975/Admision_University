@@ -1,4 +1,3 @@
-
 from flask import Blueprint, request, jsonify
 from flask_socketio import emit
 from src import db
