@@ -1,4 +1,3 @@
-
 import unittest
 from src.gdpr import app
 from src.models import db, GDPRConsent as Consent
@@ -6,9 +5,10 @@ from src.models import db, GDPRConsent as Consent
 class TestGDPR(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
-        app.config['TESTING'] = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+        app.config["TESTING"] = True
+        app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
         with app.app_context():
+            db.init_app(app)
             db.create_all()
 
     def tearDown(self):
