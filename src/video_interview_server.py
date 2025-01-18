@@ -7,16 +7,8 @@ from functools import wraps
 import jwt
 
 video_bp = Blueprint('video', __name__)
-
-def create_app():
-    app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.register_blueprint(video_bp)
-    db.init_app(app)
-    return app
-
-app = create_app()
+app = Flask(__name__)
+app.register_blueprint(video_bp)
 
 def token_required(f):
     @wraps(f)
