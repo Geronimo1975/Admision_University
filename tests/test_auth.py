@@ -1,44 +1,35 @@
 
-import unittest
-from src.auth import app
-from src.models import db, User
+from tests.base import TestBase
+from src.auth import app as auth_app
+from src.models import User
 
-class TestAuth(unittest.TestCase):
+class TestAuth(TestBase):
     def setUp(self):
-        self.app = app.test_client()
-        app.config["TESTING"] = True
-        from models import init_db
-        init_db(app)
-
-    def tearDown(self):
-        with app.app_context():
-            db.session.remove()
-            db.drop_all()
+        super().setUp()
+        self.app.register_blueprint(auth_app)
 
     def test_register(self):
-        with app.app_context():
-            response = self.app.post("/register", json={
-                "email": "test@example.com",
-                "password": "123456",
-                "role": "candidate"
-            })
-            self.assertEqual(response.status_code, 200)
+        response = self.client.post("/register", json={
+            "email": "test@example.com",
+            "password": "123456",
+            "role": "candidate"
+        })
+        self.assertEqual(response.status_code, 200)
 
     def test_login(self):
-        with app.app_context():
-            # First register a user
-            self.app.post("/register", json={
-                "email": "test@example.com",
-                "password": "123456",
-                "role": "candidate"
-            })
-            # Then try to login
-            response = self.app.post("/login", json={
-                "email": "test@example.com",
-                "password": "123456"
-            })
-            self.assertEqual(response.status_code, 200)
-            self.assertIn("token", response.get_json())
+        # First register a user
+        self.client.post("/register", json={
+            "email": "test@example.com",
+            "password": "123456",
+            "role": "candidate"
+        })
+        # Then try to login
+        response = self.client.post("/login", json={
+            "email": "test@example.com",
+            "password": "123456"
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("token", response.get_json())
 
 if __name__ == "__main__":
     unittest.main()

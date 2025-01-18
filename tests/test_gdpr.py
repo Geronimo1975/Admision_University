@@ -1,23 +1,16 @@
-import unittest
-from src.gdpr import app
-from src.models import db, GDPRConsent as Consent
 
-class TestGDPR(unittest.TestCase):
+from tests.base import TestBase
+from src.gdpr import app as gdpr_app
+
+class TestGDPR(TestBase):
     def setUp(self):
-        self.app = app.test_client()
-        app.config["TESTING"] = True
-        from models import init_db
-        init_db(app)
-
-    def tearDown(self):
-        with app.app_context():
-            db.session.remove()
-            db.drop_all()
+        super().setUp()
+        self.app.register_blueprint(gdpr_app)
 
     def test_submit_consent(self):
-        response = self.app.post('/gdpr/consent', data={
-            'consent_recording': 'on',
-            'consent_data': 'on'
+        response = self.client.post("/gdpr/consent", data={
+            "consent_recording": "on",
+            "consent_data": "on"
         })
         self.assertEqual(response.status_code, 302)
 
