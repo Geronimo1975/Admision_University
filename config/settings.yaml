@@ -1,20 +1,12 @@
-general:
-  app_name: "Admitere AI Universități"
+
+app:
+  name: "Admission System"
+  secret_key: "dev-secret-key"
   debug: true
-  database_uri: "sqlite:///admission_system.db"
-
-security:
-  allow_file_uploads: true
-  max_file_size: 5242880
-
-server:
-  host: "127.0.0.1"
-  port: 5000
 
 database:
-  uri: "sqlite:///admission_system.db"
+  uri: "sqlite:///instance/admission_system.db"
 
-
-
-
-
+email:
+  smtp_host: "localhost"
+  smtp_port: 1025
