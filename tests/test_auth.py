@@ -1,6 +1,6 @@
 
 from tests.base import TestBase
-from src.auth import app as auth_app
+from src.auth import auth_bp as auth_app
 from src.models import User
 
 class TestAuth(TestBase):

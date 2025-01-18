@@ -1,15 +1,10 @@
 
-from flask import Flask, request, redirect
+from flask import Blueprint, request, redirect
 from models import db, GDPRConsent
 
-app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+gdpr_bp = Blueprint('gdpr', __name__)
 
-from models import init_db
-init_db(app)
-
-@app.route("/gdpr/consent", methods=["POST"])
+@gdpr_bp.route("/gdpr/consent", methods=["POST"])
 def submit_consent():
     consent = GDPRConsent(
         consent_recording=request.form.get("consent_recording") == "on",

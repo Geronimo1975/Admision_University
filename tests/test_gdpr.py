@@ -1,6 +1,6 @@
 
 from tests.base import TestBase
-from src.gdpr import app as gdpr_app
+from src.gdpr import gdpr_bp as gdpr_app
 
 class TestGDPR(TestBase):
     def setUp(self):

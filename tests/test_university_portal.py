@@ -1,6 +1,6 @@
 
 from tests.base import TestBase
-from src.university_portal import app as university_app
+from src.university_portal import university_bp as university_app
 
 class TestUniversityPortal(TestBase):
     def setUp(self):
