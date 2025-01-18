@@ -1,8 +1,9 @@
-<<<<<<< HEAD
+from flask import render_template
+from src import create_app
+from flask_socketio import SocketIO
 
-from flask import Flask, render_template
-
-app = Flask(__name__, template_folder='../templates')
+app = create_app()
+socketio = SocketIO(app)
 
 @app.route('/')
 def index():
@@ -29,17 +30,4 @@ def video_interview():
     return render_template('video_interview.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3000)
-=======
-from flask import Flask
-from config_loader import settings
-from models import db
-
-app = Flask(__name__)
-app.config.from_mapping(settings)
-
-db.init_app(app)
-
-if __name__ == "__main__":
-    app.run(debug=True)
->>>>>>> 484d55e (Update)
+    socketio.run(app, host='0.0.0.0', port=3000)
