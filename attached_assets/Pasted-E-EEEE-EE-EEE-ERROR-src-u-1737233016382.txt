@@ -1,0 +1,146 @@
+E...EEEE.EE.EEE
+======================================================================
+ERROR: src (unittest.loader._FailedTest.src)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: src
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 429, in _find_test_path
+    package = self._get_module_from_name(name)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/src/__init__.py", line 4, in <module>
+    from config_loader import settings
+ModuleNotFoundError: No module named 'config_loader'
+
+
+======================================================================
+ERROR: test_login_invalid_credentials (tests.test_auth.TestAuth.test_login_invalid_credentials)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_auth.py", line 9, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 8, in setUp
+    self.app = create_app()
+               ^^^^^^^^^^^^
+  File "/home/runner/workspace/src/__init__.py", line 12, in create_app
+    db.init_app(app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 355, in init_app
+    raise RuntimeError(
+RuntimeError: Either 'SQLALCHEMY_DATABASE_URI' or 'SQLALCHEMY_BINDS' must be set.
+
+======================================================================
+ERROR: test_login_success (tests.test_auth.TestAuth.test_login_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_auth.py", line 9, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 8, in setUp
+    self.app = create_app()
+               ^^^^^^^^^^^^
+  File "/home/runner/workspace/src/__init__.py", line 12, in create_app
+    db.init_app(app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 355, in init_app
+    raise RuntimeError(
+RuntimeError: Either 'SQLALCHEMY_DATABASE_URI' or 'SQLALCHEMY_BINDS' must be set.
+
+======================================================================
+ERROR: test_register_duplicate_email (tests.test_auth.TestAuth.test_register_duplicate_email)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_auth.py", line 9, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 8, in setUp
+    self.app = create_app()
+               ^^^^^^^^^^^^
+  File "/home/runner/workspace/src/__init__.py", line 12, in create_app
+    db.init_app(app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 355, in init_app
+    raise RuntimeError(
+RuntimeError: Either 'SQLALCHEMY_DATABASE_URI' or 'SQLALCHEMY_BINDS' must be set.
+
+======================================================================
+ERROR: test_register_success (tests.test_auth.TestAuth.test_register_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_auth.py", line 9, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 8, in setUp
+    self.app = create_app()
+               ^^^^^^^^^^^^
+  File "/home/runner/workspace/src/__init__.py", line 12, in create_app
+    db.init_app(app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 355, in init_app
+    raise RuntimeError(
+RuntimeError: Either 'SQLALCHEMY_DATABASE_URI' or 'SQLALCHEMY_BINDS' must be set.
+
+======================================================================
+ERROR: test_get_consent (tests.test_gdpr.TestGDPR.test_get_consent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/base.py", line 8, in setUp
+    self.app = create_app()
+               ^^^^^^^^^^^^
+  File "/home/runner/workspace/src/__init__.py", line 12, in create_app
+    db.init_app(app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 355, in init_app
+    raise RuntimeError(
+RuntimeError: Either 'SQLALCHEMY_DATABASE_URI' or 'SQLALCHEMY_BINDS' must be set.
+
+======================================================================
+ERROR: test_update_consent (tests.test_gdpr.TestGDPR.test_update_consent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/base.py", line 8, in setUp
+    self.app = create_app()
+               ^^^^^^^^^^^^
+  File "/home/runner/workspace/src/__init__.py", line 12, in create_app
+    db.init_app(app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 355, in init_app
+    raise RuntimeError(
+RuntimeError: Either 'SQLALCHEMY_DATABASE_URI' or 'SQLALCHEMY_BINDS' must be set.
+
+======================================================================
+ERROR: test_add_university (tests.test_university_portal.TestUniversityPortal.test_add_university)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_university_portal.py", line 7, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 8, in setUp
+    self.app = create_app()
+               ^^^^^^^^^^^^
+  File "/home/runner/workspace/src/__init__.py", line 12, in create_app
+    db.init_app(app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 355, in init_app
+    raise RuntimeError(
+RuntimeError: Either 'SQLALCHEMY_DATABASE_URI' or 'SQLALCHEMY_BINDS' must be set.
+
+======================================================================
+ERROR: test_update_requirements (tests.test_university_portal.TestUniversityPortal.test_update_requirements)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_university_portal.py", line 7, in setUp
+    super().setUp()
+  File "/home/runner/workspace/tests/base.py", line 8, in setUp
+    self.app = create_app()
+               ^^^^^^^^^^^^
+  File "/home/runner/workspace/src/__init__.py", line 12, in create_app
+    db.init_app(app)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 355, in init_app
+    raise RuntimeError(
+RuntimeError: Either 'SQLALCHEMY_DATABASE_URI' or 'SQLALCHEMY_BINDS' must be set.
+
+======================================================================
+ERROR: tests.test_video_interview (unittest.loader._FailedTest.tests.test_video_interview)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_video_interview
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_video_interview.py", line 4, in <module>
+    from src.video_interview_server import app
+ImportError: cannot import name 'app' from 'src.video_interview_server' (/home/runner/workspace/src/video_interview_server.py)
+
