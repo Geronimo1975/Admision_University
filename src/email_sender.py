@@ -1,13 +1,26 @@
+
 import smtplib
+import re
 from email.message import EmailMessage
+from typing import Optional
 
-def send_email(to_email, subject, body):
+def send_email(to_email: str, subject: str, message: str) -> Optional[None]:
+    """
+    Send an email using SMTP
+    """
+    if not re.match(r"[^@]+@[^@]+\.[^@]+", to_email):
+        raise ValueError("Invalid email address")
+
     msg = EmailMessage()
-    msg.set_content(body)
-    msg["Subject"] = subject
-    msg["From"] = "your-email@example.com"
-    msg["To"] = to_email
+    msg.set_content(message)
+    
+    msg['Subject'] = subject
+    msg['From'] = "noreply@admission-ai.com"
+    msg['To'] = to_email
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login("your-email@example.com", "your-email-password")
-        server.send_message(msg)
+    try:
+        with smtplib.SMTP('localhost', 1025) as server:
+            server.send_message(msg)
+        return None
+    except Exception as e:
+        raise Exception(f"Failed to send email: {str(e)}")

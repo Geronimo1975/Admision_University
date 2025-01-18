@@ -1,7 +1,7 @@
 
 import unittest
 from flask import Flask
-from src import db, create_app
+from src import create_app, db
 
 class TestBase(unittest.TestCase):
     def setUp(self):
@@ -9,7 +9,8 @@ class TestBase(unittest.TestCase):
         self.app.config['TESTING'] = True
         self.app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
         self.app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-        self.app.config['SECRET_KEY'] = 'test-key'
+        self.app.config['SECRET_KEY'] = 'test-secret-key'
+        self.app.config['WTF_CSRF_ENABLED'] = False
         
         self.client = self.app.test_client()
         self.app_context = self.app.app_context()
