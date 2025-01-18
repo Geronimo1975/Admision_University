@@ -6,7 +6,8 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-db.init_app(app)
+from models import init_db
+init_db(app)
 
 @app.route("/universities", methods=["POST"])
 def add_university():

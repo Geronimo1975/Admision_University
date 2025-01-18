@@ -8,7 +8,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = "your-secret-key"
 
-db.init_app(app)
+from models import init_db
+init_db(app)
 
 @app.route("/register", methods=["POST"])
 def register():
