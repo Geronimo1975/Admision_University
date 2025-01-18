@@ -1,0 +1,127 @@
+..E.EEEEE
+======================================================================
+ERROR: tests.test_auth (unittest.loader._FailedTest.tests.test_auth)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_auth
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_auth.py", line 3, in <module>
+    from src.auth import app
+  File "/home/runner/workspace/src/auth.py", line 21
+    db.session.add(new_user)
+IndentationError: unexpected indent
+
+
+======================================================================
+ERROR: tests.test_gdpr (unittest.loader._FailedTest.tests.test_gdpr)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_gdpr
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_gdpr.py", line 3, in <module>
+    from src.gdpr import app
+  File "/home/runner/workspace/src/gdpr.py", line 2, in <module>
+    from models import db, GDPRConsent
+ImportError: cannot import name 'GDPRConsent' from 'models' (/home/runner/workspace/src/models.py)
+
+
+======================================================================
+ERROR: tests.test_salesforce (unittest.loader._FailedTest.tests.test_salesforce)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_salesforce
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_salesforce.py", line 3, in <module>
+    from src.salesforce import save_interview_result
+  File "/home/runner/workspace/src/salesforce.py", line 4, in <module>
+    sf = Salesforce(username=SALESFORCE_USERNAME, password=SALESFORCE_PASSWORD, security_token=SALESFORCE_TOKEN)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/simple_salesforce/api.py", line 153, in __init__
+    self._refresh_session()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/simple_salesforce/api.py", line 307, in _refresh_session
+    self.session_id, self.sf_instance = self._salesforce_login_partial()
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/simple_salesforce/login.py", line 227, in SalesforceLogin
+    return soap_login(soap_url, login_soap_request_body,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/simple_salesforce/login.py", line 253, in soap_login
+    raise SalesforceAuthenticationFailed(except_code, except_msg)
+simple_salesforce.exceptions.SalesforceAuthenticationFailed: INVALID_LOGIN: ユーザー名、パスワード、セキュリティトークンが無効か、ユーザーがロックされています。
+
+
+======================================================================
+ERROR: test_add_university (tests.test_university_portal.TestUniversityPortal.test_add_university)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_university_portal.py", line 12, in setUp
+    db.create_all()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 900, in create_all
+    self._call_for_binds(bind_key, "create_all")
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 871, in _call_for_binds
+    engine = self.engines[key]
+             ^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 690, in engines
+    raise RuntimeError(
+RuntimeError: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+
+======================================================================
+ERROR: test_update_requirements (tests.test_university_portal.TestUniversityPortal.test_update_requirements)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/workspace/tests/test_university_portal.py", line 12, in setUp
+    db.create_all()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 900, in create_all
+    self._call_for_binds(bind_key, "create_all")
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 871, in _call_for_binds
+    engine = self.engines[key]
+             ^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 690, in engines
+    raise RuntimeError(
+RuntimeError: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+
+======================================================================
+ERROR: tests.test_video_interview (unittest.loader._FailedTest.tests.test_video_interview)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_video_interview
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_video_interview.py", line 3, in <module>
+    from src.video_interview_server import app
+  File "/home/runner/workspace/src/video_interview_server.py", line 4, in <module>
+    from salesforce import save_interview_result
+  File "/home/runner/workspace/src/salesforce.py", line 4, in <module>
+    sf = Salesforce(username=SALESFORCE_USERNAME, password=SALESFORCE_PASSWORD, security_token=SALESFORCE_TOKEN)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/simple_salesforce/api.py", line 153, in __init__
+    self._refresh_session()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/simple_salesforce/api.py", line 307, in _refresh_session
+    self.session_id, self.sf_instance = self._salesforce_login_partial()
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/simple_salesforce/login.py", line 227, in SalesforceLogin
+    return soap_login(soap_url, login_soap_request_body,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/simple_salesforce/login.py", line 253, in soap_login
+    raise SalesforceAuthenticationFailed(except_code, except_msg)
+simple_salesforce.exceptions.SalesforceAuthenticationFailed: INVALID_LOGIN: ユーザー名、パスワード、セキュリティトークンが無効か、ユーザーがロックされています。
+
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.021s
+
+FAILED (errors=6)
