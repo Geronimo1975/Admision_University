@@ -7,9 +7,8 @@ class TestAuth(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
         app.config["TESTING"] = True
-        app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
-        with app.app_context():
-            db.create_all()
+        from models import init_db
+        init_db(app)
 
     def tearDown(self):
         with app.app_context():
