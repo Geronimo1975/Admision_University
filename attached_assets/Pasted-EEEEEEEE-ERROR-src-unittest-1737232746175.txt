@@ -1,0 +1,140 @@
+EEEEEEEE
+======================================================================
+ERROR: src (unittest.loader._FailedTest.src)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: src
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 429, in _find_test_path
+    package = self._get_module_from_name(name)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/src/__init__.py", line 4, in <module>
+    from config_loader import settings
+ModuleNotFoundError: No module named 'config_loader'
+
+
+======================================================================
+ERROR: tests.test_ai_evaluation (unittest.loader._FailedTest.tests.test_ai_evaluation)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_ai_evaluation
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_ai_evaluation.py", line 3, in <module>
+    from src.evaluation_ai import evaluate_response
+  File "/home/runner/workspace/src/__init__.py", line 4, in <module>
+    from config_loader import settings
+ImportError: cannot import name 'settings' from 'config_loader' (/home/runner/workspace/src/config_loader.py)
+
+
+======================================================================
+ERROR: tests.test_auth (unittest.loader._FailedTest.tests.test_auth)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_auth
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_auth.py", line 3, in <module>
+    from tests.base import TestBase
+  File "/home/runner/workspace/tests/base.py", line 4, in <module>
+    from src import create_app, db
+  File "/home/runner/workspace/src/__init__.py", line 4, in <module>
+    from config_loader import settings
+ImportError: cannot import name 'settings' from 'config_loader' (/home/runner/workspace/src/config_loader.py)
+
+
+======================================================================
+ERROR: tests.test_document_upload (unittest.loader._FailedTest.tests.test_document_upload)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_document_upload
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_document_upload.py", line 4, in <module>
+    from src.document_upload import app
+  File "/home/runner/workspace/src/__init__.py", line 4, in <module>
+    from config_loader import settings
+ImportError: cannot import name 'settings' from 'config_loader' (/home/runner/workspace/src/config_loader.py)
+
+
+======================================================================
+ERROR: tests.test_gdpr (unittest.loader._FailedTest.tests.test_gdpr)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_gdpr
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_gdpr.py", line 2, in <module>
+    from tests.base import TestBase
+  File "/home/runner/workspace/tests/base.py", line 4, in <module>
+    from src import create_app, db
+  File "/home/runner/workspace/src/__init__.py", line 4, in <module>
+    from config_loader import settings
+ImportError: cannot import name 'settings' from 'config_loader' (/home/runner/workspace/src/config_loader.py)
+
+
+======================================================================
+ERROR: tests.test_salesforce (unittest.loader._FailedTest.tests.test_salesforce)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_salesforce
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_salesforce.py", line 4, in <module>
+    from src.salesforce import save_interview_result
+  File "/home/runner/workspace/src/__init__.py", line 4, in <module>
+    from config_loader import settings
+ImportError: cannot import name 'settings' from 'config_loader' (/home/runner/workspace/src/config_loader.py)
+
+
+======================================================================
+ERROR: tests.test_university_portal (unittest.loader._FailedTest.tests.test_university_portal)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_university_portal
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_university_portal.py", line 2, in <module>
+    from tests.base import TestBase
+  File "/home/runner/workspace/tests/base.py", line 4, in <module>
+    from src import create_app, db
+  File "/home/runner/workspace/src/__init__.py", line 4, in <module>
+    from config_loader import settings
+ImportError: cannot import name 'settings' from 'config_loader' (/home/runner/workspace/src/config_loader.py)
+
+
+======================================================================
+ERROR: tests.test_video_interview (unittest.loader._FailedTest.tests.test_video_interview)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_video_interview
+Traceback (most recent call last):
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/workspace/tests/test_video_interview.py", line 4, in <module>
+    from src.video_interview_server import app
+  File "/home/runner/workspace/src/__init__.py", line 4, in <module>
+    from config_loader import settings
+ImportError: cannot import name 'settings' from 'config_loader' (/home/runner/workspace/src/config_loader.py)
+
