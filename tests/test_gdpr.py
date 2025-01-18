@@ -1,7 +1,7 @@
 
 import unittest
 from src.gdpr import app
-from src.models import db, Consent
+from src.models import db, GDPRConsent as Consent
 
 class TestGDPR(unittest.TestCase):
     def setUp(self):

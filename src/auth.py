@@ -16,7 +16,8 @@ login_manager = LoginManager(app)
 def register():
     data = request.json
     hashed_password = bcrypt.generate_password_hash(data["password"]).decode("utf-8")
-    new_user = User(email=data["email"], password=hashed_password, role=data["role"])
+    from models import User, db
+new_user = User(email=data["email"], password=hashed_password, role=data["role"])
     db.session.add(new_user)
     db.session.commit()
     return jsonify({"message": "Account created successfully!"})
