@@ -1,4 +1,5 @@
-from flask import Blueprint, request, jsonify
+
+from flask import Blueprint, request, jsonify, Flask
 from flask_socketio import emit
 from src import db
 from src.models import User
@@ -6,6 +7,16 @@ from functools import wraps
 import jwt
 
 video_bp = Blueprint('video', __name__)
+
+def create_app():
+    app = Flask(__name__)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.register_blueprint(video_bp)
+    db.init_app(app)
+    return app
+
+app = create_app()
 
 def token_required(f):
     @wraps(f)

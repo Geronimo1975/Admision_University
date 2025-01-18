@@ -12,15 +12,13 @@ class TestBase(unittest.TestCase):
         self.app.config['SECRET_KEY'] = 'test-secret-key'
         self.app.config['WTF_CSRF_ENABLED'] = False
         
+        db.init_app(self.app)
         self.client = self.app.test_client()
         self.app_context = self.app.app_context()
         self.app_context.push()
-        
-        with self.app.app_context():
-            db.create_all()
+        db.create_all()
 
     def tearDown(self):
-        with self.app.app_context():
-            db.session.remove()
-            db.drop_all()
+        db.session.remove()
+        db.drop_all()
         self.app_context.pop()
