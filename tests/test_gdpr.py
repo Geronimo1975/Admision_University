@@ -1,11 +1,13 @@
+
 import unittest
-from src.gdpr import app, db, GDPRConsent
+from src.gdpr import app
+from src.models import db, Consent
 
 class TestGDPR(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
-        self.app.testing = True
-
+        app.config['TESTING'] = True
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
         with app.app_context():
             db.create_all()
 
@@ -14,13 +16,12 @@ class TestGDPR(unittest.TestCase):
             db.session.remove()
             db.drop_all()
 
-    def test_gdpr_consent(self):
-        response = self.app.post("/gdpr", data={
-            "email": "test@example.com",
-            "consent_recording": "on",
-            "consent_data": "on"
+    def test_submit_consent(self):
+        response = self.app.post('/gdpr/consent', data={
+            'consent_recording': 'on',
+            'consent_data': 'on'
         })
-        self.assertEqual(response.status_code, 302)  # Redirect după salvare
+        self.assertEqual(response.status_code, 302)
 
 if __name__ == "__main__":
     unittest.main()
