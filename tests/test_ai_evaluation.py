@@ -1,17 +1,4 @@
-<<<<<<< HEAD
 
-import unittest
-from src.ai_evaluation import *  # Import your ai_evaluation module
-
-class TestAIEvaluation(unittest.TestCase):
-    def test_candidate_evaluation(self):
-        # Add your test logic here
-        pass
-
-    def test_score_calculation(self):
-        # Add your test logic here
-        pass
-=======
 import unittest
 from src.evaluation_ai import evaluate_response
 
@@ -21,6 +8,10 @@ class TestAIEvaluation(unittest.TestCase):
         self.assertIsInstance(response, str)
         self.assertIn("scor", response.lower())
 
+    def test_score_calculation(self):
+        response = evaluate_response("Test Candidate", "No relevant experience")
+        self.assertIsInstance(response, str)
+        self.assertTrue(any(char.isdigit() for char in response))
+
 if __name__ == "__main__":
     unittest.main()
->>>>>>> 484d55e (Update)
